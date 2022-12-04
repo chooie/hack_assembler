@@ -98,7 +98,6 @@ export async function readTextFile(
   try {
     return await Deno.readTextFile(absolutePath);
   } catch (error) {
-    // if (error instanceof Deno.errors.NotFound) {
     return {
       isError: true,
       errorType: error.name,
