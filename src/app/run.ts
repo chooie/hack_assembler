@@ -1,31 +1,28 @@
 import * as assembler from "./assembler.ts";
 
-await run();
+// WARNING: this file is the main run file. It is only called from the command
+// line and must NOT be imported by any other module
 
-async function run() {
-  const filePath = Deno.args[0];
+const filePath = Deno.args[0];
 
-  if (!filePath) {
-    console.log("You must pass a filePath");
-    return;
-  }
-
-  if (filePath === "") {
-    console.log("filePath must not be empty");
-    return;
-  }
-
-  const sourceCode = await assembler.readTextFile(filePath);
-
-  if (assembler.isReadTextFileError(sourceCode)) {
-    throw new Error(JSON.stringify(sourceCode, undefined, 2));
-  }
-
-  const machineCode = assembler.assemble(sourceCode);
-
-  const destinationFilePath = assembler.getDestinationFilePath(filePath);
-
-  await assembler.writeTextFile(destinationFilePath, machineCode);
-
-  console.log(`Generated ${destinationFilePath}`);
+if (!filePath) {
+  throw new Error("You must pass a filePath");
 }
+
+if (filePath === "") {
+  throw new Error("filePath must not be empty");
+}
+
+const sourceCode = await assembler.readTextFile(filePath);
+
+if (assembler.isReadTextFileError(sourceCode)) {
+  throw new Error(JSON.stringify(sourceCode, undefined, 2));
+}
+
+const machineCode = assembler.assemble(sourceCode);
+
+const destinationFilePath = assembler.getDestinationFilePath(filePath);
+
+await assembler.writeTextFile(destinationFilePath, machineCode);
+
+console.log(`Generated ${destinationFilePath}`);
