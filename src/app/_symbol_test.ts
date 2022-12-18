@@ -1,4 +1,5 @@
-import { assertEquals, assertThrows, describe, it } from "@test_deps";
+import { assertEquals, assertThrows } from "@test_deps/assert.ts";
+import { describe, it } from "@test_deps/bdd.ts";
 
 import * as symbol from "./symbol.ts";
 

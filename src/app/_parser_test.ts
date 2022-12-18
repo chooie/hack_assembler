@@ -2,9 +2,8 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-  describe,
-  it,
-} from "@test_deps";
+} from "@test_deps/assert.ts";
+import { describe, it } from "@test_deps/bdd.ts";
 
 import * as multiline from "@utils/multiline.ts";
 

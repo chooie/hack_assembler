@@ -1,6 +1,7 @@
 import { path } from "@deps";
 
-import { assertEquals, assertStrictEquals, describe, it } from "@test_deps";
+import { assertEquals, assertStrictEquals } from "@test_deps/assert.ts";
+import { describe, it } from "@test_deps/bdd.ts";
 
 import * as multiline from "@utils/multiline.ts";
 

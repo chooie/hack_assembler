@@ -1,4 +1,5 @@
-import { assertStrictEquals, describe, it } from "@test_deps";
+import { assertStrictEquals } from "@test_deps/assert.ts";
+import { describe, it } from "@test_deps/bdd.ts";
 
 import * as assembler from "./assembler.ts";
 
